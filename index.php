@@ -74,7 +74,21 @@
 					<!-- publication month -->
 					<div class="form-group">
 						<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
-						<input type="text" class="form-control form-book-input" id="book-publication-month">
+						<!-- <input type="text" class="form-control form-book-input" id="book-publication-month"> -->
+						<select class="form-control form-book-input" id="book-publication-month">
+							<option value="Jan">January</option>
+							<option value="Feb">February</option>
+							<option value="Mar">March</option>
+							<option value="Apr">April</option>
+							<option value="May">May</option>
+							<option value="June">June</option>
+							<option value="July">July</option>
+							<option value="Aug">August</option>
+							<option value="Sep">September</option>
+							<option value="Oct">October</option>
+							<option value="Nov">November</option>
+							<option value="Dec">December</option>
+						</select>
 					</div>
 
 					<!-- publication year -->
