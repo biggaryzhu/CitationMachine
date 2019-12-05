@@ -21,95 +21,145 @@
 
 			<div class="col-md-6 col-sm-12">
 
-				<div id="book">
-					<!-- Book form -->
-					<form class="form" id="form-book">
+				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab" aria-controls="pills-home" aria-selected="true">Book</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-wesbite-tab" data-toggle="pill" href="#pills-website" role="tab" aria-controls="pills-profile" aria-selected="false">Website</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-periodical-tab" data-toggle="pill" href="#pills-periodical" role="tab" aria-controls="pills-contact" aria-selected="false">Periodical</a>
+					</li>
+				</ul>
 
-						<!-- author(s) -->
+				<!-- tab content -->
+				<div class="tab-content" id="pills-tabContent">
 
-						<div id="book-authors">
-							<div class="form-row">
+					<!-- book citation -->
+					<div class="tab-pane fade show active" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
 
-								<!-- first name -->
-								<div class="form-group col-sm-4">
-									<label for="book-author-first" class="font-weight-bold">Author first:</label>
-									<input type="text" class="form-control form-book-input book-author-first">
-								</div>
+						<h3>Book</h3>
 
-								<!-- last name -->
-								<div class="form-group col-sm-4">
-									<label for="book-author-last" class="font-weight-bold">Author last:</label>
-									<input type="text" class="form-control form-book-input book-author-last">
-								</div>
+						<!-- Book form -->
+						<form class="form" id="form-book">
+							<!-- author(s) -->
+							<div id="book-authors">
+								<div class="form-row">
 
-								<!-- remove author button -->
-								<div class="form-group col-sm-2">
-									<label for="book-remove-author" class="font-weight-bold">Remove author:</label>
-									<button type="button" id="remove-author" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)" disabled>Remove</button>
-								</div>
+									<!-- first name -->
+									<div class="form-group col-sm-4">
+										<label for="book-author-first" class="font-weight-bold">Author first:</label>
+										<input type="text" class="form-control form-book-input book-author-first">
+									</div>
 
-								<!-- add author button -->
-								<div class="form-group col-sm-2">
-									<label for="book-add-author" class="font-weight-bold">Add author:</label>
-									<button type="button" id="book-add-author" class="btn btn-primary" onclick="addBookAuthorField()">Add author</button>
+									<!-- last name -->
+									<div class="form-group col-sm-4">
+										<label for="book-author-last" class="font-weight-bold">Author last:</label>
+										<input type="text" class="form-control form-book-input book-author-last">
+									</div>
+
+									<!-- remove author button -->
+									<div class="form-group col-sm-2">
+										<label for="book-remove-author" class="font-weight-bold">Remove author:</label>
+										<button type="button" id="remove-author" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)" disabled>Remove</button>
+									</div>
+
+									<!-- add author button -->
+									<div class="form-group col-sm-2">
+										<label for="book-add-author" class="font-weight-bold">Add author:</label>
+										<button type="button" id="book-add-author" class="btn btn-primary" onclick="addBookAuthorField()">Add author</button>
+									</div>
+
 								</div>
 
 							</div>
 
-						</div>
+							<!-- title -->
+							<div class="form-group">
+								<label for="book-title" class="font-weight-bold">Title:</label>
+								<input type="text" class="form-control form-book-input" id="book-title">
+							</div>
 
-						<!-- title -->
-						<div class="form-group">
-							<label for="book-title" class="font-weight-bold">Title:</label>
-							<input type="text" class="form-control form-book-input" id="book-title">
-						</div>
+							<!-- publisher -->
+							<div class="form-group">
+								<label for="book-publisher" class="font-weight-bold">Publisher:</label>
+								<input type="text" class="form-control form-book-input" id="book-publisher">
+							</div>
 
-						<!-- publisher -->
-						<div class="form-group">
-							<label for="book-publisher" class="font-weight-bold">Publisher:</label>
-							<input type="text" class="form-control form-book-input" id="book-publisher">
-						</div>
+							<!-- publication day -->
+							<div class="form-group">
+								<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
+								<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
+							</div>
 
-						<!-- publication day -->
-						<div class="form-group">
-							<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
-							<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
-						</div>
+							<!-- publication month -->
+							<div class="form-group">
+								<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
+								<select class="form-control form-book-input" id="book-publication-month">
+									<option value="">None</option>
+									<option value="Jan">January</option>
+									<option value="Feb">February</option>
+									<option value="Mar">March</option>
+									<option value="Apr">April</option>
+									<option value="May">May</option>
+									<option value="June">June</option>
+									<option value="July">July</option>
+									<option value="Aug">August</option>
+									<option value="Sep">September</option>
+									<option value="Oct">October</option>
+									<option value="Nov">November</option>
+									<option value="Dec">December</option>
+								</select>
+							</div>
 
-						<!-- publication month -->
-						<div class="form-group">
-							<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
-							<select class="form-control form-book-input" id="book-publication-month">
-								<option value="">None</option>
-								<option value="Jan">January</option>
-								<option value="Feb">February</option>
-								<option value="Mar">March</option>
-								<option value="Apr">April</option>
-								<option value="May">May</option>
-								<option value="June">June</option>
-								<option value="July">July</option>
-								<option value="Aug">August</option>
-								<option value="Sep">September</option>
-								<option value="Oct">October</option>
-								<option value="Nov">November</option>
-								<option value="Dec">December</option>
-							</select>
-						</div>
+							<!-- publication year -->
+							<div class="form-group">
+								<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
+								<input type="number" class="form-control form-book-input" id="book-publication-year" min="1">
+							</div>
 
-						<!-- publication year -->
-						<div class="form-group">
-							<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
-							<input type="number" class="form-control form-book-input" id="book-publication-year" min="1">
-						</div>
+							<!-- create book citation button -->
+							<button type="button" id="book-create-button" class="btn btn-primary" onclick="createBookCitation()">Create</button>
 
-						<!-- create book citation button -->
-						<button type="button" id="book-create-button" class="btn btn-primary" onclick="createBookCitation()">Create</button>
+							<!-- clear book input fields button -->
+							<button type="button" id="book-clear-button" class="btn btn-secondary" onclick="clearBookFields()">Clear fields</button>
+						</form>
 
-						<!-- clear book input fields button -->
-						<button type="button" id="book-clear-button" class="btn btn-secondary" onclick="clearBookFields()">Clear fields</button>
-					</form>
 
+					</div>
+
+
+					<div class="tab-pane fade" id="pills-website" role="tabpanel" aria-labelledby="pills-website-tab">
+						<h3>Website</h3>
+
+						
+
+
+
+
+
+
+
+
+
+
+					</div>
+
+
+
+
+
+
+
+
+					<div class="tab-pane fade" id="pills-periodical" role="tabpanel" aria-labelledby="pills-periodical-tab">
+						<h3>Periodical</h3>
+					</div>
 				</div>
+
+
+
 
 			</div>
 
