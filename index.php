@@ -21,104 +21,95 @@
 
 			<div class="col-md-6 col-sm-12">
 
-				<!-- Book form -->
-				<form class="form" method="post" id="form-book">
+				<div id="book">
+					<!-- Book form -->
+					<form class="form" id="form-book">
 
-					<!-- author(s) -->
+						<!-- author(s) -->
 
-					<div id="book-authors">
-						<div class="form-row">
+						<div id="book-authors">
+							<div class="form-row">
 
-							<!-- first name -->
-							<div class="form-group col-sm-4">
-								<label for="book-author-first" class="font-weight-bold">Author first:</label>
-								<input type="text" class="form-control form-book-input book-author-first">
-							</div>
+								<!-- first name -->
+								<div class="form-group col-sm-4">
+									<label for="book-author-first" class="font-weight-bold">Author first:</label>
+									<input type="text" class="form-control form-book-input book-author-first">
+								</div>
 
-							<!-- last name -->
-							<div class="form-group col-sm-4">
-								<label for="book-author-last" class="font-weight-bold">Author last:</label>
-								<input type="text" class="form-control form-book-input book-author-last">
-							</div>
+								<!-- last name -->
+								<div class="form-group col-sm-4">
+									<label for="book-author-last" class="font-weight-bold">Author last:</label>
+									<input type="text" class="form-control form-book-input book-author-last">
+								</div>
 
-							<!-- remove author button -->
-							<div class="form-group col-sm-2">
-								<label for="book-remove-author" class="font-weight-bold">Remove author:</label>
-								<button type="button" id="remove-author" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)" disabled>Remove</button>
-							</div>
+								<!-- remove author button -->
+								<div class="form-group col-sm-2">
+									<label for="book-remove-author" class="font-weight-bold">Remove author:</label>
+									<button type="button" id="remove-author" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)" disabled>Remove</button>
+								</div>
 
-							<!-- add author button -->
-							<div class="form-group col-sm-2">
-								<label for="book-add-author" class="font-weight-bold">Add author:</label>
-								<button type="button" id="book-add-author" class="btn btn-primary" onclick="addBookAuthorField()">Add author</button>
+								<!-- add author button -->
+								<div class="form-group col-sm-2">
+									<label for="book-add-author" class="font-weight-bold">Add author:</label>
+									<button type="button" id="book-add-author" class="btn btn-primary" onclick="addBookAuthorField()">Add author</button>
+								</div>
+
 							</div>
 
 						</div>
 
-					</div>
+						<!-- title -->
+						<div class="form-group">
+							<label for="book-title" class="font-weight-bold">Title:</label>
+							<input type="text" class="form-control form-book-input" id="book-title">
+						</div>
 
-					<!-- title -->
-					<div class="form-group">
-						<label for="book-title" class="font-weight-bold">Title:</label>
-						<input type="text" class="form-control form-book-input" id="book-title">
-					</div>
+						<!-- publisher -->
+						<div class="form-group">
+							<label for="book-publisher" class="font-weight-bold">Publisher:</label>
+							<input type="text" class="form-control form-book-input" id="book-publisher">
+						</div>
 
-					<!-- version -->
-					<!-- <div class="form-group">
-						<label for="book-version" class="font-weight-bold">Version:</label>
-						<input type="text" class="form-control form-book-input" id="book-version">
-					</div> -->
+						<!-- publication day -->
+						<div class="form-group">
+							<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
+							<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
+						</div>
 
-					<!-- number -->
-					<!-- <div class="form-group">
-						<label for="book-number" class="font-weight-bold">Number(edition):</label>
-						<input type="text" class="form-control form-book-input" id="book-number">
-					</div> -->
+						<!-- publication month -->
+						<div class="form-group">
+							<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
+							<select class="form-control form-book-input" id="book-publication-month">
+								<option value="">None</option>
+								<option value="Jan">January</option>
+								<option value="Feb">February</option>
+								<option value="Mar">March</option>
+								<option value="Apr">April</option>
+								<option value="May">May</option>
+								<option value="June">June</option>
+								<option value="July">July</option>
+								<option value="Aug">August</option>
+								<option value="Sep">September</option>
+								<option value="Oct">October</option>
+								<option value="Nov">November</option>
+								<option value="Dec">December</option>
+							</select>
+						</div>
 
-					<!-- publisher -->
-					<div class="form-group">
-						<label for="book-publisher" class="font-weight-bold">Publisher:</label>
-						<input type="text" class="form-control form-book-input" id="book-publisher">
-					</div>
+						<!-- publication year -->
+						<div class="form-group">
+							<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
+							<input type="number" class="form-control form-book-input" id="book-publication-year" min="1">
+						</div>
 
-					<!-- publication day -->
-					<div class="form-group">
-						<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
-						<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
-					</div>
+						<!-- create book citation button -->
+						<button type="button" id="book-create-button" class="btn btn-primary" onclick="createBookCitation()">Create</button>
 
-					<!-- publication month -->
-					<div class="form-group">
-						<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
-						<select class="form-control form-book-input" id="book-publication-month">
-							<option value="">None</option>
-							<option value="Jan">January</option>
-							<option value="Feb">February</option>
-							<option value="Mar">March</option>
-							<option value="Apr">April</option>
-							<option value="May">May</option>
-							<option value="June">June</option>
-							<option value="July">July</option>
-							<option value="Aug">August</option>
-							<option value="Sep">September</option>
-							<option value="Oct">October</option>
-							<option value="Nov">November</option>
-							<option value="Dec">December</option>
-						</select>
-					</div>
+						<!-- clear book input fields button -->
+						<button type="button" id="book-clear-button" class="btn btn-secondary" onclick="clearBookFields()">Clear fields</button>
+					</form>
 
-					<!-- publication year -->
-					<div class="form-group">
-						<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
-						<input type="number" class="form-control form-book-input" id="book-publication-year" min="1">
-					</div>
-
-					<!-- create book citation button -->
-					<button type="button" id="book-create-button" class="btn btn-primary" onclick="createBookCitation()">Create</button>
-
-					<!-- clear book input fields button -->
-					<button type="button" id="book-clear-button" class="btn btn-secondary">Clear fields</button>
-				</form>
+				</div>
 
 			</div>
 
@@ -133,6 +124,11 @@
 	</div>
 
 	<script>
+		function clearBookFields() {
+			$(".form-book-input").val('');
+		}
+
+
 		// adds a book author input field to the form
 		function addBookAuthorField() {
 			var first = '<div class="form-group col-sm-4"><label for="book-author-first" class="font-weight-bold">Author first:</label><input type="text" class="form-control form-book-input book-author-first"></div>';
