@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+number<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -17,71 +17,148 @@
 
 		<h1 class="text-center">Citation Machine</h1>
 
-		<!-- Book form -->
-		<form class="form" method="post" name="form-book">
+		<div class="row">
 
-			<!-- author -->
-			<div class="form-group">
-				<label for="book-author" class="font-weight-bold">Author(s):</label>
-				<input type="text" class="form-control" id="book-author">
+			<div class="col-md-6 col-sm-12">
+
+				<!-- Book form -->
+				<form class="form" method="post" id="form-book">
+
+					<!-- author -->
+					<div class="form-row">
+
+						<!-- first name -->
+						<div class="form-group col-sm-6">
+							<label for="book-author-first" class="font-weight-bold">Author first:</label>
+							<input type="text" class="form-control" id="book-author-first">
+						</div>
+
+						<!-- last name -->
+						<div class="form-group col-sm-6">
+							<label for="book-author-last" class="font-weight-bold">Author last:</label>
+							<input type="text" class="form-control" id="book-author-last">
+						</div>
+
+					</div>
+
+					<!-- title -->
+					<div class="form-group">
+						<label for="book-title" class="font-weight-bold">Title:</label>
+						<input type="text" class="form-control" id="book-title">
+					</div>
+
+					<!-- version -->
+					<div class="form-group">
+						<label for="book-version" class="font-weight-bold">Version:</label>
+						<input type="text" class="form-control" id="book-version">
+					</div>
+
+					<!-- number -->
+					<div class="form-group">
+						<label for="book-number" class="font-weight-bold">Number(edition):</label>
+						<input type="text" class="form-control" id="book-number">
+					</div>
+
+					<!-- publisher -->
+					<div class="form-group">
+						<label for="book-publisher" class="font-weight-bold">Publisher:</label>
+						<input type="text" class="form-control" id="book-publisher">
+					</div>
+
+					<!-- publication day -->
+					<div class="form-group">
+						<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
+						<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
+					</div>
+
+					<!-- publication month -->
+					<div class="form-group">
+						<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
+						<input type="text" class="form-control" id="book-publication-month">
+					</div>
+
+					<!-- publication year -->
+					<div class="form-group">
+						<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
+						<input type="number" class="form-control" id="book-publication-year" min="1">
+					</div>
+
+					<!-- create book citation button -->
+					<button type="button" id="book-create-button" class="btn btn-primary" onclick="createBookCitation()">Create</button>
+
+					<!-- clear book input fields button -->
+					<button type="button" id="book-clear-button" class="btn btn-secondary">Clear fields</button>
+				</form>
+
 			</div>
 
-			<!-- title -->
-			<div class="form-group">
-				<label for="book-title" class="font-weight-bold">Title:</label>
-				<input type="text" class="form-control" id="book-title">
+			<div class="col-md-6 col-sm-12" id="completed-section" >
 			</div>
 
-			<!-- version -->
-			<div class="form-group">
-				<label for="book-version" class="font-weight-bold">Version:</label>
-				<input type="text" class="form-control" id="book-version">
-			</div>
-
-			<!-- number -->
-			<div class="form-group">
-				<label for="book-number" class="font-weight-bold">Number(edition):</label>
-				<input type="text" class="form-control" id="book-number">
-			</div>
-
-			<!-- publisher -->
-			<div class="form-group">
-				<label for="book-publisher" class="font-weight-bold">Publisher:</label>
-				<input type="text" class="form-control" id="book-publisher">
-			</div>
-
-			<!-- publication day -->
-			<div class="form-group">
-				<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
-				<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
-			</div>
-
-			<!-- publication month -->
-			<div class="form-group">
-				<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
-				<input type="text" class="form-control" id="book-publication-month">
-			</div>
-
-			<!-- publication year -->
-			<div class="form-group">
-				<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
-				<input type="number" class="form-control" id="book-publication-year" min="1">
-			</div>
-
-			<button type="button" id="book-create-button" class="btn btn-primary">Create</button>
-			<button type="button" id="book-clear-button" class="btn btn-secondary">Clear fields</button>
-		</form>
-
-
-
-
-
-
-
+		</div>
 
 
 
 	</div>
+
+	<script>
+
+	function createBookCitation() {
+
+		// get the info
+		var first = $("#book-author-first").val();
+		var last = $("#book-author-last").val();
+		var title = $("#book-title").val();
+		var version = $("#book-version").val();
+		var number = $("#book-number").val();
+		var publisher = $("#book-publisher").val();
+		var day = $("#book-publication-month").val();
+		var month = $("#book-publication-day").val();
+		var year = $("#book-publication-year").val();
+
+		var publicationDate = day + ' ' + month + '. ' + year + ', ';
+
+		var citation = '<div>' + last + ', ' + first + '. <i> ' + title + '</i>. ' +  publisher  + ', ' +  publicationDate   +  '</div>';
+
+		$("#completed-section").append(citation);
+
+
+	}
+
+	function getBookEdition(edition) {
+
+		if (edition == 1) {
+			return '1st';
+		} else if (edition == 2) {
+			return '2nd';
+		} else if (edition == 3) {
+			return '3rd';
+		} else {
+			return edition + 'th';
+		}
+	}
+
+
+
+
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<!-- Bootstrap jquery, popper, then bootstrap.js -->
