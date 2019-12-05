@@ -44,7 +44,7 @@
 							<!-- remove author button -->
 							<div class="form-group col-sm-2">
 								<label for="book-remove-author" class="font-weight-bold">Remove author:</label>
-								<button type="button" id="remove-author" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)">Remove</button>
+								<button type="button" id="remove-author" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)" disabled>Remove</button>
 							</div>
 
 							<!-- add author button -->
@@ -113,7 +113,7 @@
 					</div>
 
 					<!-- create book citation button -->
-					<button type="button" id="book-create-button" class="btn btn-primary" onclick="createBookCitation()">Create</button>
+					<button type="button" id="book-create-button" class="btn btn-primary" onclick="getAuthors()">Create</button>
 
 					<!-- clear book input fields button -->
 					<button type="button" id="book-clear-button" class="btn btn-secondary">Clear fields</button>
@@ -164,13 +164,64 @@
 			var year = $("#book-publication-year").val();
 
 			var publicationDate = day + ' ' + month + '. ' + year + ', ';
-
 			var citation = '<div>' + last + ', ' + first + '. <i> ' + title + '</i>. ' + publisher + ', ' + publicationDate + '</div>';
 
 			$("#completed-section").append(citation);
-
-
 		}
+
+
+
+		function getAuthors() {
+			var lastNames = document.getElementsByClassName("book-author-last");
+			var firstNames = document.getElementsByClassName("book-author-first");
+
+			// zero or 1 author
+			if (lastNames.length == 1) {
+				var lastName = lastNames[0].value;
+				var firstName = firstNames[0].value;
+
+				if (lastName.length == 0 && firstName.length == 0) {
+					return '';
+				} else {
+					var result = lastName + ', ' + firstName + '.';
+					return result;
+				}
+			}
+
+			// 2 authors
+			else if (lastNames.length == 2) {
+				// first author
+				var lastName1 = lastNames[0].value;
+				var firstName1 = firstNames[0].value;
+
+				// second author
+				var lastName2 = lastNames[1].value;
+				var firstName2 = firstNames[1].value;
+
+				var result = lastName1 + ', ' + firstName1 + ', and ' + firstName2 + ' ' + lastName2 + '.';
+				return result;
+
+			}
+
+			// three or more authors
+			else {
+				var firstName = firstNames[0].value;
+				var lastName = lastNames[0].value;
+
+				var result = lastName + ', ' + firstName + ', et al.';
+				return result;
+			}
+		}
+
+
+
+
+
+
+
+
+
+
 
 		// returns the display for the edition
 		function getBookEdition(edition) {
