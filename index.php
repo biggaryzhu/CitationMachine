@@ -50,13 +50,13 @@
 									<!-- first name -->
 									<div class="form-group col-sm-4">
 										<label for="book-author-first" class="font-weight-bold">Author first:</label>
-										<input type="text" class="form-control form-book-input book-author-first">
+										<input type="text" class="form-control form-book-input book-author-first" placeholder="First">
 									</div>
 
 									<!-- last name -->
 									<div class="form-group col-sm-4">
 										<label for="book-author-last" class="font-weight-bold">Author last:</label>
-										<input type="text" class="form-control form-book-input book-author-last">
+										<input type="text" class="form-control form-book-input book-author-last" placeholder="Last">
 									</div>
 
 									<!-- remove author button -->
@@ -78,45 +78,49 @@
 							<!-- title -->
 							<div class="form-group">
 								<label for="book-title" class="font-weight-bold">Title:</label>
-								<input type="text" class="form-control form-book-input" id="book-title">
+								<input type="text" class="form-control form-book-input" id="book-title" placeholder="Enter book title">
 							</div>
 
 							<!-- publisher -->
 							<div class="form-group">
 								<label for="book-publisher" class="font-weight-bold">Publisher:</label>
-								<input type="text" class="form-control form-book-input" id="book-publisher">
+								<input type="text" class="form-control form-book-input" id="book-publisher" placeholder="Enter publisher">
 							</div>
 
-							<!-- publication day -->
-							<div class="form-group">
-								<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
-								<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
-							</div>
+							<div class="form-row">
 
-							<!-- publication month -->
-							<div class="form-group">
-								<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
-								<select class="form-control form-book-input" id="book-publication-month">
-									<option value="">None</option>
-									<option value="Jan">January</option>
-									<option value="Feb">February</option>
-									<option value="Mar">March</option>
-									<option value="Apr">April</option>
-									<option value="May">May</option>
-									<option value="June">June</option>
-									<option value="July">July</option>
-									<option value="Aug">August</option>
-									<option value="Sep">September</option>
-									<option value="Oct">October</option>
-									<option value="Nov">November</option>
-									<option value="Dec">December</option>
-								</select>
-							</div>
+								<!-- publication day -->
+								<div class="form-group col-sm-2">
+									<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
+									<input type="number" class="form-control" id="book-publication-day" min="1" max="31" placeholder="Enter day">
+								</div>
 
-							<!-- publication year -->
-							<div class="form-group">
-								<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
-								<input type="number" class="form-control form-book-input" id="book-publication-year" min="1">
+								<!-- publication month -->
+								<div class="form-group col-sm-4">
+									<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
+									<select class="form-control form-book-input" id="book-publication-month">
+										<option value="">None</option>
+										<option value="Jan">January</option>
+										<option value="Feb">February</option>
+										<option value="Mar">March</option>
+										<option value="Apr">April</option>
+										<option value="May">May</option>
+										<option value="June">June</option>
+										<option value="July">July</option>
+										<option value="Aug">August</option>
+										<option value="Sep">September</option>
+										<option value="Oct">October</option>
+										<option value="Nov">November</option>
+										<option value="Dec">December</option>
+									</select>
+								</div>
+
+								<!-- publication year -->
+								<div class="form-group col-sm-6">
+									<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
+									<input type="number" class="form-control form-book-input" id="book-publication-year" min="1" placeholder="Enter year">
+								</div>
+
 							</div>
 
 							<!-- create book citation button -->
@@ -132,8 +136,6 @@
 
 					<div class="tab-pane fade" id="pills-website" role="tabpanel" aria-labelledby="pills-website-tab">
 						<h3>Website</h3>
-
-						
 
 
 
