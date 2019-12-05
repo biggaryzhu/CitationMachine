@@ -36,15 +36,21 @@
 							</div>
 
 							<!-- last name -->
-							<div class="form-group col-sm-6">
+							<div class="form-group col-sm-4">
 								<label for="book-author-last" class="font-weight-bold">Author last:</label>
 								<input type="text" class="form-control form-book-input book-author-last">
+							</div>
+
+							<!-- remove author button -->
+							<div class="form-group col-sm-2">
+								<label for="book-remove-author" class="font-weight-bold">Remove author:</label>
+								<button type="button" id="remove-author" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)">Remove</button>
 							</div>
 
 							<!-- add author button -->
 							<div class="form-group col-sm-2">
 								<label for="book-add-author" class="font-weight-bold">Add author:</label>
-								<button type="button" id="book-add-author" class="btn btn-secondary" onclick="addBookAuthorField()">Add author</button>
+								<button type="button" id="book-add-author" class="btn btn-primary" onclick="addBookAuthorField()">Add author</button>
 							</div>
 
 						</div>
@@ -127,9 +133,20 @@
 	<script>
 		function addBookAuthorField() {
 			var first = '<div class="form-group col-sm-4"><label for="book-author-first" class="font-weight-bold">Author first:</label><input type="text" class="form-control form-book-input book-author-first"></div>';
-			var last = '<div class="form-group col-sm-6"><label for="book-author-last" class="font-weight-bold">Author last:</label><input type="text" class="form-control form-book-input book-author-last"></div>';
-			$("#book-authors").append('<div class="form-row">' + first + last + '</div>');
+			var last = '<div class="form-group col-sm-4"><label for="book-author-last" class="font-weight-bold">Author last:</label><input type="text" class="form-control form-book-input book-author-last"></div>';
+			var removeButton = '<div class="form-group col-sm-2"><label for="book-remove-author" class="font-weight-bold">Remove author:</label><button type="button" class="btn btn-secondary book-remove-author" onclick="removeAuthor(this)">Remove</button></div>';
+			var addButton = '<div class="form-group col-sm-2"><label for="book-add-author" class="font-weight-bold">Add author:</label><button type="button" id="book-add-author" class="btn btn-primary" onclick="addBookAuthorField()">Add author</button></div>';
+
+			$("#book-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
 		}
+
+		function removeAuthor(button) {
+			$(button).closest(".form-row").remove();
+		}
+
+
+
+
 
 
 
