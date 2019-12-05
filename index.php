@@ -22,12 +22,18 @@
 			<div class="col-md-6 col-sm-12">
 
 				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+					<!-- book tab -->
 					<li class="nav-item">
-						<a class="nav-link active" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab" aria-controls="pills-home" aria-selected="true">Book</a>
+						<a class="nav-link" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab" aria-controls="pills-home" aria-selected="false">Book</a>
 					</li>
+
+					<!-- website tab -->
 					<li class="nav-item">
-						<a class="nav-link" id="pills-wesbite-tab" data-toggle="pill" href="#pills-website" role="tab" aria-controls="pills-profile" aria-selected="false">Website</a>
+						<a class="nav-link active" id="pills-wesbite-tab" data-toggle="pill" href="#pills-website" role="tab" aria-controls="pills-profile" aria-selected="true">Website</a>
 					</li>
+
+					<!-- periodical tab -->
 					<li class="nav-item">
 						<a class="nav-link" id="pills-periodical-tab" data-toggle="pill" href="#pills-periodical" role="tab" aria-controls="pills-contact" aria-selected="false">Periodical</a>
 					</li>
@@ -37,7 +43,7 @@
 				<div class="tab-content" id="pills-tabContent">
 
 					<!-- book citation -->
-					<div class="tab-pane fade show active" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
+					<div class="tab-pane fade" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
 
 						<h3>Book</h3>
 
@@ -50,13 +56,13 @@
 									<!-- first name -->
 									<div class="form-group col-sm-4">
 										<label for="book-author-first" class="font-weight-bold">Author first:</label>
-										<input type="text" class="form-control form-book-input book-author-first" placeholder="First">
+										<input type="text" class="form-control form-book-input book-author-first">
 									</div>
 
 									<!-- last name -->
 									<div class="form-group col-sm-4">
 										<label for="book-author-last" class="font-weight-bold">Author last:</label>
-										<input type="text" class="form-control form-book-input book-author-last" placeholder="Last">
+										<input type="text" class="form-control form-book-input book-author-last">
 									</div>
 
 									<!-- remove author button -->
@@ -78,13 +84,13 @@
 							<!-- title -->
 							<div class="form-group">
 								<label for="book-title" class="font-weight-bold">Title:</label>
-								<input type="text" class="form-control form-book-input" id="book-title" placeholder="Enter book title">
+								<input type="text" class="form-control form-book-input" id="book-title">
 							</div>
 
 							<!-- publisher -->
 							<div class="form-group">
 								<label for="book-publisher" class="font-weight-bold">Publisher:</label>
-								<input type="text" class="form-control form-book-input" id="book-publisher" placeholder="Enter publisher">
+								<input type="text" class="form-control form-book-input" id="book-publisher">
 							</div>
 
 							<div class="form-row">
@@ -92,7 +98,7 @@
 								<!-- publication day -->
 								<div class="form-group col-sm-2">
 									<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
-									<input type="number" class="form-control" id="book-publication-day" min="1" max="31" placeholder="Enter day">
+									<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
 								</div>
 
 								<!-- publication month -->
@@ -118,7 +124,7 @@
 								<!-- publication year -->
 								<div class="form-group col-sm-6">
 									<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
-									<input type="number" class="form-control form-book-input" id="book-publication-year" min="1" placeholder="Enter year">
+									<input type="number" class="form-control form-book-input" id="book-publication-year" min="1">
 								</div>
 
 							</div>
@@ -134,7 +140,7 @@
 					</div>
 
 					<!-- website -->
-					<div class="tab-pane fade" id="pills-website" role="tabpanel" aria-labelledby="pills-website-tab">
+					<div class="tab-pane fade show active" id="pills-website" role="tabpanel" aria-labelledby="pills-website-tab">
 						<h3>Website</h3>
 
 						<!-- website form -->
@@ -146,13 +152,13 @@
 									<!-- first name -->
 									<div class="form-group col-sm-4">
 										<label for="website-author-first" class="font-weight-bold">Author first:</label>
-										<input type="text" class="form-control form-website-input website-author-first" placeholder="First">
+										<input type="text" class="form-control form-website-input website-author-first">
 									</div>
 
 									<!-- last name -->
 									<div class="form-group col-sm-4">
 										<label for="website-author-last" class="font-weight-bold">Author last:</label>
-										<input type="text" class="form-control form-website-input website-author-last" placeholder="Last">
+										<input type="text" class="form-control form-website-input website-author-last">
 									</div>
 
 									<!-- remove author button -->
@@ -168,27 +174,36 @@
 									</div>
 
 								</div>
-
 							</div>
 
 							<!-- title -->
 							<div class="form-group">
 								<label for="website-title" class="font-weight-bold">Title:</label>
-								<input type="text" class="form-control form-website-input" id="website-title" placeholder="Enter website title">
+								<input type="text" class="form-control form-website-input" id="website-title">
 							</div>
 
-							<!-- publisher -->
-							<div class="form-group">
-								<label for="website-publisher" class="font-weight-bold">Publisher:</label>
-								<input type="text" class="form-control form-website-input" id="website-publisher" placeholder="Enter publisher">
-							</div>
-
+							<!-- container & publisher -->
 							<div class="form-row">
 
+								<!-- container -->
+								<div class="form-group col-sm-6">
+									<label for="website-container" class="font-weight-bold">Container:</label>
+									<input type="text" class="form-control form-website-input" id="website-container">
+								</div>
+
+								<!-- publisher -->
+								<div class="form-group col-sm-6">
+									<label for="website-publisher" class="font-weight-bold">Publisher:</label>
+									<input type="text" class="form-control form-website-input" id="website-publisher">
+								</div>
+							</div>
+
+							<!-- publication date -->
+							<div class="form-row">
 								<!-- publication day -->
 								<div class="form-group col-sm-2">
 									<label for="website-publication-day" class="font-weight-bold">Publication day:</label>
-									<input type="number" class="form-control" id="website-publication-day" min="1" max="31" placeholder="Enter day">
+									<input type="number" class="form-control" id="website-publication-day" min="1" max="31">
 								</div>
 
 								<!-- publication month -->
@@ -214,7 +229,48 @@
 								<!-- publication year -->
 								<div class="form-group col-sm-6">
 									<label for="website-publication-year" class="font-weight-bold">Publication year:</label>
-									<input type="number" class="form-control form-website-input" id="website-publication-year" min="1" placeholder="Enter year">
+									<input type="number" class="form-control form-website-input" id="website-publication-year" min="1">
+								</div>
+
+							</div>
+
+							<!-- location -->
+							<div class="form-group">
+								<label for="website-location" class="font-weight-bold">URL:</label>
+								<input type="text" class="form-control form-website-input" id="website-location">
+							</div>
+
+							<!-- access date -->
+							<div class="form-row">
+								<!-- access day -->
+								<div class="form-group col-sm-2">
+									<label for="website-access-day" class="font-weight-bold">Access day:</label>
+									<input type="number" class="form-control" id="website-access-day" min="1" max="31">
+								</div>
+
+								<!-- access month -->
+								<div class="form-group col-sm-4">
+									<label for="website-access-month" class="font-weight-bold">Access month:</label>
+									<select class="form-control form-website-input" id="website-access-month">
+										<option value="Jan">January</option>
+										<option value="Feb">February</option>
+										<option value="Mar">March</option>
+										<option value="Apr">April</option>
+										<option value="May">May</option>
+										<option value="June">June</option>
+										<option value="July">July</option>
+										<option value="Aug">August</option>
+										<option value="Sep">September</option>
+										<option value="Oct">October</option>
+										<option value="Nov">November</option>
+										<option value="Dec">December</option>
+									</select>
+								</div>
+
+								<!-- access year -->
+								<div class="form-group col-sm-6">
+									<label for="website-access-year" class="font-weight-bold">Access year:</label>
+									<input type="number" class="form-control form-website-input" id="website-access-year" min="1">
 								</div>
 
 							</div>
@@ -233,6 +289,7 @@
 
 						<!-- periodical form -->
 						<form class="form" id="form-periodical">
+
 							<!-- author(s) -->
 							<div id="periodical-authors">
 								<div class="form-row">
@@ -240,13 +297,13 @@
 									<!-- first name -->
 									<div class="form-group col-sm-4">
 										<label for="periodical-author-first" class="font-weight-bold">Author first:</label>
-										<input type="text" class="form-control form-periodical-input periodical-author-first" placeholder="First">
+										<input type="text" class="form-control form-periodical-input periodical-author-first">
 									</div>
 
 									<!-- last name -->
 									<div class="form-group col-sm-4">
 										<label for="periodical-author-last" class="font-weight-bold">Author last:</label>
-										<input type="text" class="form-control form-periodical-input periodical-author-last" placeholder="Last">
+										<input type="text" class="form-control form-periodical-input periodical-author-last">
 									</div>
 
 									<!-- remove author button -->
@@ -262,27 +319,35 @@
 									</div>
 
 								</div>
-
 							</div>
 
 							<!-- title -->
 							<div class="form-group">
 								<label for="periodical-title" class="font-weight-bold">Title:</label>
-								<input type="text" class="form-control form-periodical-input" id="periodical-title" placeholder="Enter periodical title">
-							</div>
-
-							<!-- publisher -->
-							<div class="form-group">
-								<label for="periodical-publisher" class="font-weight-bold">Publisher:</label>
-								<input type="text" class="form-control form-periodical-input" id="periodical-publisher" placeholder="Enter publisher">
+								<input type="text" class="form-control form-periodical-input" id="periodical-title">
 							</div>
 
 							<div class="form-row">
 
+								<!-- container -->
+								<div class="form-group col-sm-6">
+									<label for="periodical-container" class="font-weight-bold">Container:</label>
+									<input type="text" class="form-control form-periodical-input" id="periodical-container">
+								</div>
+
+								<!-- publisher -->
+								<div class="form-group col-sm-6">
+									<label for="periodical-publisher" class="font-weight-bold">Publisher:</label>
+									<input type="text" class="form-control form-periodical-input" id="periodical-publisher">
+								</div>
+							</div>
+
+							<!-- publication date -->
+							<div class="form-row">
 								<!-- publication day -->
 								<div class="form-group col-sm-2">
 									<label for="periodical-publication-day" class="font-weight-bold">Publication day:</label>
-									<input type="number" class="form-control" id="periodical-publication-day" min="1" max="31" placeholder="Enter day">
+									<input type="number" class="form-control" id="periodical-publication-day" min="1" max="31">
 								</div>
 
 								<!-- publication month -->
@@ -308,10 +373,52 @@
 								<!-- publication year -->
 								<div class="form-group col-sm-6">
 									<label for="periodical-publication-year" class="font-weight-bold">Publication year:</label>
-									<input type="number" class="form-control form-periodical-input" id="periodical-publication-year" min="1" placeholder="Enter year">
+									<input type="number" class="form-control form-periodical-input" id="periodical-publication-year" min="1">
 								</div>
 
 							</div>
+
+							<!-- location -->
+							<div class="form-group">
+								<label for="periodical-location" class="font-weight-bold">URL:</label>
+								<input type="text" class="form-control form-periodical-input" id="periodical-location">
+							</div>
+
+							<!-- access date -->
+							<div class="form-row">
+								<!-- access day -->
+								<div class="form-group col-sm-2">
+									<label for="periodical-access-day" class="font-weight-bold">Access day:</label>
+									<input type="number" class="form-control" id="periodical-access-day" min="1" max="31">
+								</div>
+
+								<!-- access month -->
+								<div class="form-group col-sm-4">
+									<label for="periodical-access-month" class="font-weight-bold">Access month:</label>
+									<select class="form-control form-periodical-input" id="periodical-access-month">
+										<option value="Jan">January</option>
+										<option value="Feb">February</option>
+										<option value="Mar">March</option>
+										<option value="Apr">April</option>
+										<option value="May">May</option>
+										<option value="June">June</option>
+										<option value="July">July</option>
+										<option value="Aug">August</option>
+										<option value="Sep">September</option>
+										<option value="Oct">October</option>
+										<option value="Nov">November</option>
+										<option value="Dec">December</option>
+									</select>
+								</div>
+
+								<!-- access year -->
+								<div class="form-group col-sm-6">
+									<label for="periodical-access-year" class="font-weight-bold">Access year:</label>
+									<input type="number" class="form-control form-periodical-input" id="periodical-access-year" min="1">
+								</div>
+
+							</div>
+
 
 							<!-- create periodical citation button -->
 							<button type="button" id="periodical-create-button" class="btn btn-primary" onclick="createperiodicalCitation()">Create</button>
@@ -321,9 +428,6 @@
 						</form>
 					</div>
 				</div>
-
-
-
 
 			</div>
 
@@ -361,7 +465,6 @@
 			$(button).closest(".form-row").remove();
 		}
 
-
 		// creates a book citation
 		function createBookCitation() {
 
@@ -373,7 +476,6 @@
 			var citation = '<div>' + author + title + publisher + publicationDate + '</div>';
 			$("#completed-section").append(citation);
 		}
-
 
 		//  returns the book authors
 		function getAuthors() {
