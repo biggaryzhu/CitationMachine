@@ -24,19 +24,29 @@
 				<!-- Book form -->
 				<form class="form" method="post" id="form-book">
 
-					<!-- author -->
-					<div class="form-row">
+					<!-- author(s) -->
 
-						<!-- first name -->
-						<div class="form-group col-sm-6">
-							<label for="book-author-first" class="font-weight-bold">Author first:</label>
-							<input type="text" class="form-control form-book-input" id="book-author-first">
-						</div>
+					<div id="book-authors">
+						<div class="form-row">
 
-						<!-- last name -->
-						<div class="form-group col-sm-6">
-							<label for="book-author-last" class="font-weight-bold">Author last:</label>
-							<input type="text" class="form-control form-book-input" id="book-author-last">
+							<!-- first name -->
+							<div class="form-group col-sm-4">
+								<label for="book-author-first" class="font-weight-bold">Author first:</label>
+								<input type="text" class="form-control form-book-input book-author-first">
+							</div>
+
+							<!-- last name -->
+							<div class="form-group col-sm-6">
+								<label for="book-author-last" class="font-weight-bold">Author last:</label>
+								<input type="text" class="form-control form-book-input book-author-last">
+							</div>
+
+							<!-- add author button -->
+							<div class="form-group col-sm-2">
+								<label for="book-add-author" class="font-weight-bold">Add author:</label>
+								<button type="button" id="book-add-author" class="btn btn-secondary" onclick="addBookAuthorField()">Add author</button>
+							</div>
+
 						</div>
 
 					</div>
@@ -74,7 +84,6 @@
 					<!-- publication month -->
 					<div class="form-group">
 						<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
-						<!-- <input type="text" class="form-control form-book-input" id="book-publication-month"> -->
 						<select class="form-control form-book-input" id="book-publication-month">
 							<option value="Jan">January</option>
 							<option value="Feb">February</option>
@@ -106,7 +115,7 @@
 
 			</div>
 
-			<div class="col-md-6 col-sm-12" id="completed-section" >
+			<div class="col-md-6 col-sm-12" id="completed-section">
 			</div>
 
 		</div>
@@ -116,55 +125,52 @@
 	</div>
 
 	<script>
-
-	function createBookCitation() {
-
-		// get the info
-		var first = $("#book-author-first").val();
-		var last = $("#book-author-last").val();
-		var title = $("#book-title").val();
-		// var version = $("#book-version").val();
-		// var number = $("#book-number").val();
-		var publisher = $("#book-publisher").val();
-		var day = $("#book-publication-month").val();
-		var month = $("#book-publication-day").val();
-		var year = $("#book-publication-year").val();
-
-		var publicationDate = day + ' ' + month + '. ' + year + ', ';
-
-		var citation = '<div>' + last + ', ' + first + '. <i> ' + title + '</i>. ' +  publisher  + ', ' +  publicationDate   +  '</div>';
-
-		$("#completed-section").append(citation);
-
-
-	}
-
-	function getBookEdition(edition) {
-
-		if (edition == 1) {
-			return '1st';
-		} else if (edition == 2) {
-			return '2nd';
-		} else if (edition == 3) {
-			return '3rd';
-		} else {
-			return edition + 'th';
+		function addBookAuthorField() {
+			var first = '<div class="form-group col-sm-4"><label for="book-author-first" class="font-weight-bold">Author first:</label><input type="text" class="form-control form-book-input book-author-first"></div>';
+			var last = '<div class="form-group col-sm-6"><label for="book-author-last" class="font-weight-bold">Author last:</label><input type="text" class="form-control form-book-input book-author-last"></div>';
+			$("#book-authors").append('<div class="form-row">' + first + last + '</div>');
 		}
-	}
 
 
 
 
 
 
+		function createBookCitation() {
+
+			// get the info
+			var first = $(".book-author-first").val();
+			var last = $(".book-author-last").val();
+			var title = $("#book-title").val();
+			// var version = $("#book-version").val();
+			// var number = $("#book-number").val();
+			var publisher = $("#book-publisher").val();
+			var day = $("#book-publication-month").val();
+			var month = $("#book-publication-day").val();
+			var year = $("#book-publication-year").val();
+
+			var publicationDate = day + ' ' + month + '. ' + year + ', ';
+
+			var citation = '<div>' + last + ', ' + first + '. <i> ' + title + '</i>. ' + publisher + ', ' + publicationDate + '</div>';
+
+			$("#completed-section").append(citation);
+
+
+		}
+
+		function getBookEdition(edition) {
+
+			if (edition == 1) {
+				return '1st';
+			} else if (edition == 2) {
+				return '2nd';
+			} else if (edition == 3) {
+				return '3rd';
+			} else {
+				return edition + 'th';
+			}
+		}
 	</script>
-
-
-
-
-
-
-
 
 
 
