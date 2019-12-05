@@ -91,6 +91,7 @@
 					<div class="form-group">
 						<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
 						<select class="form-control form-book-input" id="book-publication-month">
+							<option value="">None</option>
 							<option value="Jan">January</option>
 							<option value="Feb">February</option>
 							<option value="Mar">March</option>
@@ -113,7 +114,7 @@
 					</div>
 
 					<!-- create book citation button -->
-					<button type="button" id="book-create-button" class="btn btn-primary" onclick="getAuthors()">Create</button>
+					<button type="button" id="book-create-button" class="btn btn-primary" onclick="createBookCitation()">Create</button>
 
 					<!-- clear book input fields button -->
 					<button type="button" id="book-clear-button" class="btn btn-secondary">Clear fields</button>
@@ -152,19 +153,14 @@
 		// creates a book citation
 		function createBookCitation() {
 
-			// get the info
-			var first = $(".book-author-first").val();
-			var last = $(".book-author-last").val();
-			var title = $("#book-title").val();
-			// var version = $("#book-version").val();
-			// var number = $("#book-number").val();
-			var publisher = $("#book-publisher").val();
-			var day = $("#book-publication-month").val();
-			var month = $("#book-publication-day").val();
-			var year = $("#book-publication-year").val();
+			var author = getAuthors();
+			var title = getBookTitle();
+			var publisher = getBookPublisher();
+			var publicationDate = getBookPublicationDate();
 
-			var publicationDate = day + ' ' + month + '. ' + year + ', ';
-			var citation = '<div>' + last + ', ' + first + '. <i> ' + title + '</i>. ' + publisher + ', ' + publicationDate + '</div>';
+			var citation = '<div>' + author + title + publisher + publicationDate + '</div>';
+
+
 
 			$("#completed-section").append(citation);
 		}
@@ -213,9 +209,49 @@
 			}
 		}
 
+		function getBookPublicationDate() {
 
 
+			var day = $("#book-publication-day").val();
+			var month = $("#book-publication-month").val();
+			var year = $("#book-publication-year").val();
 
+			var result = '';
+
+			if (day.length > 0) {
+				result = ' ' + day;
+			}
+
+			if (month.length > 0) {
+				result = result + ' ' + month + '.';
+			}
+
+			if (year.length > 0) {
+				result = result + ' ' + year + '.';
+			}
+
+			return result;
+		}
+
+		function getBookTitle() {
+			var title = $("#book-title").val();
+
+			if (title.length > 0) {
+				return ' <i>' + title + '.</i>';
+			} else {
+				return '';
+			}
+		}
+
+		function getBookPublisher() {
+
+			var publisher = $("#book-publisher").val();
+			if (publisher.length > 0) {
+				return ' ' + publisher + ',';
+			} else {
+				return '';
+			}
+		}
 
 
 
