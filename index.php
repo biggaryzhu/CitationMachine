@@ -13,9 +13,66 @@
 
 <body>
 
+	<div class="container-fluid">
+
+		<h1 class="text-center">Citation Machine</h1>
+
+		<!-- Book form -->
+		<form class="form" method="post" name="form-book">
+
+			<!-- author -->
+			<div class="form-group">
+				<label for="book-author" class="font-weight-bold">Author(s):</label>
+				<input type="text" class="form-control" id="book-author">
+			</div>
+
+			<!-- title -->
+			<div class="form-group">
+				<label for="book-title" class="font-weight-bold">Title:</label>
+				<input type="text" class="form-control" id="book-title">
+			</div>
+
+			<!-- version -->
+			<div class="form-group">
+				<label for="book-version" class="font-weight-bold">Version:</label>
+				<input type="text" class="form-control" id="book-version">
+			</div>
+
+			<!-- number -->
+			<div class="form-group">
+				<label for="book-number" class="font-weight-bold">Number(edition):</label>
+				<input type="text" class="form-control" id="book-number">
+			</div>
+
+			<!-- publisher -->
+			<div class="form-group">
+				<label for="book-publisher" class="font-weight-bold">Publisher:</label>
+				<input type="text" class="form-control" id="book-publisher">
+			</div>
+
+			<!-- publication day -->
+			<div class="form-group">
+				<label for="book-publication-day" class="font-weight-bold">Publication day:</label>
+				<input type="number" class="form-control" id="book-publication-day" min="1" max="31">
+			</div>
+
+			<!-- publication month -->
+			<div class="form-group">
+				<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
+				<input type="text" class="form-control" id="book-publication-month">
+			</div>
+
+			<!-- publication year -->
+			<div class="form-group">
+				<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
+				<input type="number" class="form-control" id="book-publication-year" min="1">
+			</div>
+
+			<button type="button" id="book-create-button" class="btn btn-primary">Create</button>
+			<button type="button" id="book-clear-button" class="btn btn-secondary">Clear fields</button>
+		</form>
 
 
-	
 
 
 
@@ -24,33 +81,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	</div>
 
 
 	<!-- Bootstrap jquery, popper, then bootstrap.js -->
