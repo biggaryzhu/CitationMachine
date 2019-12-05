@@ -1,4 +1,4 @@
-number<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -30,13 +30,13 @@ number<!DOCTYPE html>
 						<!-- first name -->
 						<div class="form-group col-sm-6">
 							<label for="book-author-first" class="font-weight-bold">Author first:</label>
-							<input type="text" class="form-control" id="book-author-first">
+							<input type="text" class="form-control form-book-input" id="book-author-first">
 						</div>
 
 						<!-- last name -->
 						<div class="form-group col-sm-6">
 							<label for="book-author-last" class="font-weight-bold">Author last:</label>
-							<input type="text" class="form-control" id="book-author-last">
+							<input type="text" class="form-control form-book-input" id="book-author-last">
 						</div>
 
 					</div>
@@ -44,25 +44,25 @@ number<!DOCTYPE html>
 					<!-- title -->
 					<div class="form-group">
 						<label for="book-title" class="font-weight-bold">Title:</label>
-						<input type="text" class="form-control" id="book-title">
+						<input type="text" class="form-control form-book-input" id="book-title">
 					</div>
 
 					<!-- version -->
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="book-version" class="font-weight-bold">Version:</label>
-						<input type="text" class="form-control" id="book-version">
-					</div>
+						<input type="text" class="form-control form-book-input" id="book-version">
+					</div> -->
 
 					<!-- number -->
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="book-number" class="font-weight-bold">Number(edition):</label>
-						<input type="text" class="form-control" id="book-number">
-					</div>
+						<input type="text" class="form-control form-book-input" id="book-number">
+					</div> -->
 
 					<!-- publisher -->
 					<div class="form-group">
 						<label for="book-publisher" class="font-weight-bold">Publisher:</label>
-						<input type="text" class="form-control" id="book-publisher">
+						<input type="text" class="form-control form-book-input" id="book-publisher">
 					</div>
 
 					<!-- publication day -->
@@ -74,13 +74,13 @@ number<!DOCTYPE html>
 					<!-- publication month -->
 					<div class="form-group">
 						<label for="book-publication-month" class="font-weight-bold">Publication month:</label>
-						<input type="text" class="form-control" id="book-publication-month">
+						<input type="text" class="form-control form-book-input" id="book-publication-month">
 					</div>
 
 					<!-- publication year -->
 					<div class="form-group">
 						<label for="book-publication-year" class="font-weight-bold">Publication year:</label>
-						<input type="number" class="form-control" id="book-publication-year" min="1">
+						<input type="number" class="form-control form-book-input" id="book-publication-year" min="1">
 					</div>
 
 					<!-- create book citation button -->
@@ -109,8 +109,8 @@ number<!DOCTYPE html>
 		var first = $("#book-author-first").val();
 		var last = $("#book-author-last").val();
 		var title = $("#book-title").val();
-		var version = $("#book-version").val();
-		var number = $("#book-number").val();
+		// var version = $("#book-version").val();
+		// var number = $("#book-number").val();
 		var publisher = $("#book-publisher").val();
 		var day = $("#book-publication-month").val();
 		var month = $("#book-publication-day").val();
