@@ -133,30 +133,192 @@
 
 					</div>
 
-
+					<!-- website -->
 					<div class="tab-pane fade" id="pills-website" role="tabpanel" aria-labelledby="pills-website-tab">
 						<h3>Website</h3>
 
+						<!-- website form -->
+						<form class="form" id="form-website">
+							<!-- author(s) -->
+							<div id="website-authors">
+								<div class="form-row">
 
+									<!-- first name -->
+									<div class="form-group col-sm-4">
+										<label for="website-author-first" class="font-weight-bold">Author first:</label>
+										<input type="text" class="form-control form-website-input website-author-first" placeholder="First">
+									</div>
 
+									<!-- last name -->
+									<div class="form-group col-sm-4">
+										<label for="website-author-last" class="font-weight-bold">Author last:</label>
+										<input type="text" class="form-control form-website-input website-author-last" placeholder="Last">
+									</div>
 
+									<!-- remove author button -->
+									<div class="form-group col-sm-2">
+										<label for="website-remove-author" class="font-weight-bold">Remove author:</label>
+										<button type="button" id="remove-author" class="btn btn-secondary website-remove-author" onclick="removeAuthor(this)" disabled>Remove</button>
+									</div>
 
+									<!-- add author button -->
+									<div class="form-group col-sm-2">
+										<label for="website-add-author" class="font-weight-bold">Add author:</label>
+										<button type="button" id="website-add-author" class="btn btn-primary" onclick="addwebsiteAuthorField()">Add author</button>
+									</div>
 
+								</div>
 
+							</div>
 
+							<!-- title -->
+							<div class="form-group">
+								<label for="website-title" class="font-weight-bold">Title:</label>
+								<input type="text" class="form-control form-website-input" id="website-title" placeholder="Enter website title">
+							</div>
 
+							<!-- publisher -->
+							<div class="form-group">
+								<label for="website-publisher" class="font-weight-bold">Publisher:</label>
+								<input type="text" class="form-control form-website-input" id="website-publisher" placeholder="Enter publisher">
+							</div>
 
+							<div class="form-row">
+
+								<!-- publication day -->
+								<div class="form-group col-sm-2">
+									<label for="website-publication-day" class="font-weight-bold">Publication day:</label>
+									<input type="number" class="form-control" id="website-publication-day" min="1" max="31" placeholder="Enter day">
+								</div>
+
+								<!-- publication month -->
+								<div class="form-group col-sm-4">
+									<label for="website-publication-month" class="font-weight-bold">Publication month:</label>
+									<select class="form-control form-website-input" id="website-publication-month">
+										<option value="">None</option>
+										<option value="Jan">January</option>
+										<option value="Feb">February</option>
+										<option value="Mar">March</option>
+										<option value="Apr">April</option>
+										<option value="May">May</option>
+										<option value="June">June</option>
+										<option value="July">July</option>
+										<option value="Aug">August</option>
+										<option value="Sep">September</option>
+										<option value="Oct">October</option>
+										<option value="Nov">November</option>
+										<option value="Dec">December</option>
+									</select>
+								</div>
+
+								<!-- publication year -->
+								<div class="form-group col-sm-6">
+									<label for="website-publication-year" class="font-weight-bold">Publication year:</label>
+									<input type="number" class="form-control form-website-input" id="website-publication-year" min="1" placeholder="Enter year">
+								</div>
+
+							</div>
+
+							<!-- create website citation button -->
+							<button type="button" id="website-create-button" class="btn btn-primary" onclick="createwebsiteCitation()">Create</button>
+
+							<!-- clear website input fields button -->
+							<button type="button" id="website-clear-button" class="btn btn-secondary" onclick="clearwebsiteFields()">Clear fields</button>
+						</form>
 					</div>
 
-
-
-
-
-
-
-
+					<!-- Periodical -->
 					<div class="tab-pane fade" id="pills-periodical" role="tabpanel" aria-labelledby="pills-periodical-tab">
 						<h3>Periodical</h3>
+
+						<!-- periodical form -->
+						<form class="form" id="form-periodical">
+							<!-- author(s) -->
+							<div id="periodical-authors">
+								<div class="form-row">
+
+									<!-- first name -->
+									<div class="form-group col-sm-4">
+										<label for="periodical-author-first" class="font-weight-bold">Author first:</label>
+										<input type="text" class="form-control form-periodical-input periodical-author-first" placeholder="First">
+									</div>
+
+									<!-- last name -->
+									<div class="form-group col-sm-4">
+										<label for="periodical-author-last" class="font-weight-bold">Author last:</label>
+										<input type="text" class="form-control form-periodical-input periodical-author-last" placeholder="Last">
+									</div>
+
+									<!-- remove author button -->
+									<div class="form-group col-sm-2">
+										<label for="periodical-remove-author" class="font-weight-bold">Remove author:</label>
+										<button type="button" id="remove-author" class="btn btn-secondary periodical-remove-author" onclick="removeAuthor(this)" disabled>Remove</button>
+									</div>
+
+									<!-- add author button -->
+									<div class="form-group col-sm-2">
+										<label for="periodical-add-author" class="font-weight-bold">Add author:</label>
+										<button type="button" id="periodical-add-author" class="btn btn-primary" onclick="addperiodicalAuthorField()">Add author</button>
+									</div>
+
+								</div>
+
+							</div>
+
+							<!-- title -->
+							<div class="form-group">
+								<label for="periodical-title" class="font-weight-bold">Title:</label>
+								<input type="text" class="form-control form-periodical-input" id="periodical-title" placeholder="Enter periodical title">
+							</div>
+
+							<!-- publisher -->
+							<div class="form-group">
+								<label for="periodical-publisher" class="font-weight-bold">Publisher:</label>
+								<input type="text" class="form-control form-periodical-input" id="periodical-publisher" placeholder="Enter publisher">
+							</div>
+
+							<div class="form-row">
+
+								<!-- publication day -->
+								<div class="form-group col-sm-2">
+									<label for="periodical-publication-day" class="font-weight-bold">Publication day:</label>
+									<input type="number" class="form-control" id="periodical-publication-day" min="1" max="31" placeholder="Enter day">
+								</div>
+
+								<!-- publication month -->
+								<div class="form-group col-sm-4">
+									<label for="periodical-publication-month" class="font-weight-bold">Publication month:</label>
+									<select class="form-control form-periodical-input" id="periodical-publication-month">
+										<option value="">None</option>
+										<option value="Jan">January</option>
+										<option value="Feb">February</option>
+										<option value="Mar">March</option>
+										<option value="Apr">April</option>
+										<option value="May">May</option>
+										<option value="June">June</option>
+										<option value="July">July</option>
+										<option value="Aug">August</option>
+										<option value="Sep">September</option>
+										<option value="Oct">October</option>
+										<option value="Nov">November</option>
+										<option value="Dec">December</option>
+									</select>
+								</div>
+
+								<!-- publication year -->
+								<div class="form-group col-sm-6">
+									<label for="periodical-publication-year" class="font-weight-bold">Publication year:</label>
+									<input type="number" class="form-control form-periodical-input" id="periodical-publication-year" min="1" placeholder="Enter year">
+								</div>
+
+							</div>
+
+							<!-- create periodical citation button -->
+							<button type="button" id="periodical-create-button" class="btn btn-primary" onclick="createperiodicalCitation()">Create</button>
+
+							<!-- clear periodical input fields button -->
+							<button type="button" id="periodical-clear-button" class="btn btn-secondary" onclick="clearperiodicalFields()">Clear fields</button>
+						</form>
 					</div>
 				</div>
 
@@ -176,6 +338,7 @@
 	</div>
 
 	<script>
+		// clear book form input field values
 		function clearBookFields() {
 			$(".form-book-input").val('');
 		}
@@ -193,6 +356,7 @@
 			$("#book-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
 		}
 
+		// remove a book author
 		function removeAuthor(button) {
 			$(button).closest(".form-row").remove();
 		}
@@ -207,14 +371,11 @@
 			var publicationDate = getBookPublicationDate();
 
 			var citation = '<div>' + author + title + publisher + publicationDate + '</div>';
-
-
-
 			$("#completed-section").append(citation);
 		}
 
 
-
+		//  returns the book authors
 		function getAuthors() {
 			var lastNames = document.getElementsByClassName("book-author-last");
 			var firstNames = document.getElementsByClassName("book-author-first");
@@ -257,9 +418,8 @@
 			}
 		}
 
+		// returns the book publication date
 		function getBookPublicationDate() {
-
-
 			var day = $("#book-publication-day").val();
 			var month = $("#book-publication-month").val();
 			var year = $("#book-publication-year").val();
@@ -281,6 +441,7 @@
 			return result;
 		}
 
+		// returns the book title
 		function getBookTitle() {
 			var title = $("#book-title").val();
 
@@ -291,6 +452,7 @@
 			}
 		}
 
+		// returns the book publisher
 		function getBookPublisher() {
 
 			var publisher = $("#book-publisher").val();
@@ -298,26 +460,6 @@
 				return ' ' + publisher + ',';
 			} else {
 				return '';
-			}
-		}
-
-
-
-
-
-
-
-		// returns the display for the edition
-		function getBookEdition(edition) {
-
-			if (edition == 1) {
-				return '1st';
-			} else if (edition == 2) {
-				return '2nd';
-			} else if (edition == 3) {
-				return '3rd';
-			} else {
-				return edition + 'th';
 			}
 		}
 	</script>
