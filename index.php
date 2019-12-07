@@ -31,12 +31,12 @@
 
 					<!-- website tab -->
 					<li class="nav-item">
-						<a class="nav-link active" id="pills-wesbite-tab" data-toggle="pill" href="#pills-website" role="tab" aria-controls="pills-profile" aria-selected="true">Website</a>
+						<a class="nav-link" id="pills-wesbite-tab" data-toggle="pill" href="#pills-website" role="tab" aria-controls="pills-profile" aria-selected="false">Website</a>
 					</li>
 
 					<!-- periodical tab -->
 					<li class="nav-item">
-						<a class="nav-link" id="pills-periodical-tab" data-toggle="pill" href="#pills-periodical" role="tab" aria-controls="pills-contact" aria-selected="false">Periodical</a>
+						<a class="nav-link active" id="pills-periodical-tab" data-toggle="pill" href="#pills-periodical" role="tab" aria-controls="pills-contact" aria-selected="true">Periodical</a>
 					</li>
 				</ul>
 
@@ -141,7 +141,7 @@
 					</div>
 
 					<!-- website -->
-					<div class="tab-pane fade show active" id="pills-website" role="tabpanel" aria-labelledby="pills-website-tab">
+					<div class="tab-pane fade" id="pills-website" role="tabpanel" aria-labelledby="pills-website-tab">
 						<h3>Website</h3>
 
 						<!-- website form -->
@@ -171,7 +171,7 @@
 									<!-- add author button -->
 									<div class="form-group col-sm-2">
 										<label for="website-add-author" class="font-weight-bold">Add author:</label>
-										<button type="button" id="website-add-author" class="btn btn-primary" onclick="addwebsiteAuthorField()">Add author</button>
+										<button type="button" id="website-add-author" class="btn btn-primary" onclick="addWebsiteAuthorField()">Add author</button>
 									</div>
 
 								</div>
@@ -277,15 +277,15 @@
 							</div>
 
 							<!-- create website citation button -->
-							<button type="button" id="website-create-button" class="btn btn-primary" onclick="createwebsiteCitation()">Create</button>
+							<button type="button" id="website-create-button" class="btn btn-primary" onclick="createWebsiteCitation()">Create</button>
 
 							<!-- clear website input fields button -->
-							<button type="button" id="website-clear-button" class="btn btn-secondary" onclick="clearwebsiteFields()">Clear fields</button>
+							<button type="button" id="website-clear-button" class="btn btn-secondary" onclick="clearWebsiteFields()">Clear fields</button>
 						</form>
 					</div>
 
 					<!-- Periodical -->
-					<div class="tab-pane fade" id="pills-periodical" role="tabpanel" aria-labelledby="pills-periodical-tab">
+					<div class="tab-pane fade show active" id="pills-periodical" role="tabpanel" aria-labelledby="pills-periodical-tab">
 						<h3>Periodical</h3>
 
 						<!-- periodical form -->
@@ -316,7 +316,7 @@
 									<!-- add author button -->
 									<div class="form-group col-sm-2">
 										<label for="periodical-add-author" class="font-weight-bold">Add author:</label>
-										<button type="button" id="periodical-add-author" class="btn btn-primary" onclick="addperiodicalAuthorField()">Add author</button>
+										<button type="button" id="periodical-add-author" class="btn btn-primary" onclick="addPeriodicalAuthorField()">Add author</button>
 									</div>
 
 								</div>
@@ -469,7 +469,7 @@
 		// creates a book citation
 		function createBookCitation() {
 
-			var author = getAuthors();
+			var author = getBookAuthors();
 			var title = getBookTitle();
 			var publisher = getBookPublisher();
 			var publicationDate = getBookPublicationDate();
@@ -479,7 +479,7 @@
 		}
 
 		//  returns the book authors
-		function getAuthors() {
+		function getBookAuthors() {
 			var lastNames = document.getElementsByClassName("book-author-last");
 			var firstNames = document.getElementsByClassName("book-author-first");
 
@@ -565,6 +565,170 @@
 				return '';
 			}
 		}
+
+
+
+		// adds a book author input field to the form
+		function addWebsiteAuthorField() {
+			var first = '<div class="form-group col-sm-4"><label for="website-author-first" class="font-weight-bold">Author first:</label><input type="text" class="form-control form-website-input website-author-first"></div>';
+			var last = '<div class="form-group col-sm-4"><label for="website-author-last" class="font-weight-bold">Author last:</label><input type="text" class="form-control form-website-input website-author-last"></div>';
+			var removeButton =
+				'<div class="form-group col-sm-2"><label for="website-remove-author" class="font-weight-bold">Remove author:</label><button type="button" class="btn btn-secondary website-remove-author" onclick="removeAuthor(this)">Remove</button></div>';
+			var addButton =
+				'<div class="form-group col-sm-2"><label for="website-add-author" class="font-weight-bold">Add author:</label><button type="button" id="website-add-author" class="btn btn-primary" onclick="addWebsiteAuthorField()">Add author</button></div>';
+
+			$("#website-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
+		}
+
+
+		function createWebsiteCitation() {
+
+			var authors = getWebsiteAuthors();
+			var title = getWebsiteTitle();
+			var container = getWebsiteContainer();
+			var publisher = getWebsitePublisher();
+			var publicationDate = getWebsitePublicationDate();
+			var location = getWebsiteLocation();
+			var accessDate = getWebsiteAccessDate();
+
+			var citation = '<div>' + authors + title + container + publisher + publicationDate + location + accessDate + '</div>';
+			$("#completed-section").append(citation);
+
+		}
+
+		//  returns the book authors
+		function getWebsiteAuthors() {
+			var lastNames = document.getElementsByClassName("website-author-last");
+			var firstNames = document.getElementsByClassName("website-author-first");
+
+			// zero or 1 author
+			if (lastNames.length == 1) {
+				var lastName = lastNames[0].value;
+				var firstName = firstNames[0].value;
+
+				if (lastName.length == 0 && firstName.length == 0) {
+					return '';
+				} else {
+					var result = lastName + ', ' + firstName + '.';
+					return result;
+				}
+			}
+
+			// 2 authors
+			else if (lastNames.length == 2) {
+				// first author
+				var lastName1 = lastNames[0].value;
+				var firstName1 = firstNames[0].value;
+
+				// second author
+				var lastName2 = lastNames[1].value;
+				var firstName2 = firstNames[1].value;
+
+				var result = lastName1 + ', ' + firstName1 + ', and ' + firstName2 + ' ' + lastName2 + '.';
+				return result;
+
+			}
+
+			// three or more authors
+			else {
+				var firstName = firstNames[0].value;
+				var lastName = lastNames[0].value;
+
+				var result = lastName + ', ' + firstName + ', et al.';
+				return result;
+			}
+		}
+
+		// returns the book title
+		function getWebsiteTitle() {
+			var title = $("#website-title").val();
+
+			if (title.length > 0) {
+				return ' "' + title + '."';
+			} else {
+				return '';
+			}
+		}
+
+		function getWebsitePublisher() {
+			var publisher = $("#website-publisher").val();
+			if (publisher.length > 0) {
+				return ' ' + publisher + ',';
+			} else {
+				return '';
+			}
+		}
+
+		function getWebsitePublicationDate() {
+			var day = $("#website-publication-day").val();
+			var month = $("#website-publication-month").val();
+			var year = $("#website-publication-year").val();
+
+			var result = '';
+
+			if (day.length > 0) {
+				result = ' ' + day;
+			}
+
+			if (month.length > 0) {
+				result = result + ' ' + month + '.';
+			}
+
+			if (year.length > 0) {
+				result = result + ' ' + year + '.';
+			}
+
+			return result;
+		}
+
+		function getWebsiteContainer() {
+
+			var container = $("#website-container").val();
+
+			if (container.length > 0) {
+				return ' <i>' + container + '</i>,';
+			} else {
+				return '';
+			}
+		}
+
+		function getWebsiteLocation() {
+			var location = $("#website-location").val();
+
+			if (location.length > 0) {
+				return ' ' + location + '.';
+			} else {
+				return '';
+			}
+		}
+
+		function getWebsiteAccessDate() {
+			var day = $("#website-access-day").val();
+			var month = $("#website-access-month").val();
+			var year = $("#website-access-year").val();
+
+			var result = ' Accessed';
+
+			if (day.length > 0) {
+				result = result + ' ' + day;
+			}
+
+			if (month.length > 0) {
+				result = result + ' ' + month + '.';
+			}
+
+			if (year.length > 0) {
+				result = result + ' ' + year + '.';
+			}
+
+			return result;
+		}
+
+
+
+
+
+
 	</script>
 
 
