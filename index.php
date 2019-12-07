@@ -8,6 +8,9 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+	<!-- Ionicons plugin -->
+	<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
 	<title>Citation Machine</title>
 </head>
 
@@ -433,7 +436,28 @@
 			</div>
 
 			<!-- completed citations section -->
-			<div class="col-md-6 col-sm-12" id="completed-section">
+			<div class="col-md-6 col-sm-12">
+
+
+
+				<table class="table table-sm">
+
+					<thead>
+						<tr>
+							<th>Citation</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody id="completed-section">
+
+					</tbody>
+
+
+
+				</table>
+
+
+
 			</div>
 
 		</div>
@@ -443,11 +467,19 @@
 	</div>
 
 	<script>
+
+		function addCitationRow(citation) {
+			var citationCell = '<td>' + citation + '</td>';
+			var trash = '<td><ion-icon name="trash"></ion-icon></td>';
+			$("#completed-section").append('<tr>' + citationCell + trash + '</tr>');
+		}
+
+
+
 		// clear book form input field values
 		function clearBookFields() {
 			$(".form-book-input").val('');
 		}
-
 
 		// adds a book author input field to the form
 		function addBookAuthorField() {
@@ -459,6 +491,8 @@
 				'<div class="form-group col-sm-2"><label for="book-add-author" class="font-weight-bold">Add author:</label><button type="button" id="book-add-author" class="btn btn-primary" onclick="addBookAuthorField()">Add author</button></div>';
 
 			$("#book-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
+
+
 		}
 
 		// remove a book author
@@ -474,8 +508,10 @@
 			var publisher = getBookPublisher();
 			var publicationDate = getBookPublicationDate();
 
-			var citation = '<div>' + author + title + publisher + publicationDate + '</div>';
-			$("#completed-section").append(citation);
+			var citation =  author + title + publisher + publicationDate;
+			// $("#completed-section").append(citation);
+
+			addCitationRow(citation);
 		}
 
 		//  returns the book authors
@@ -596,7 +632,9 @@
 			var accessDate = getWebsiteAccessDate();
 
 			var citation = '<div>' + authors + title + container + publisher + publicationDate + location + accessDate + '</div>';
-			$("#completed-section").append(citation);
+			// $("#completed-section").append(citation);
+
+			addCitationRow(citation);
 
 		}
 
@@ -756,7 +794,9 @@
 			var accessDate = getPeriodicalAccessDate();
 
 			var citation = '<div>' + authors + title + container + publisher + publicationDate + location + accessDate + '</div>';
-			$("#completed-section").append(citation);
+			// $("#completed-section").append(citation);
+
+			addCitationRow(citation);
 
 		}
 
@@ -904,6 +944,8 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
