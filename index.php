@@ -24,11 +24,11 @@
 
 			<div class="col-md-6 col-sm-12">
 
-				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+				<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
 
 					<!-- book tab -->
 					<li class="nav-item">
-						<a class="nav-link" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab" aria-controls="pills-home" aria-selected="false">Book</a>
+						<a class="nav-link active" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab" aria-controls="pills-home" aria-selected="true">Book</a>
 					</li>
 
 
@@ -39,7 +39,7 @@
 
 					<!-- periodical tab -->
 					<li class="nav-item">
-						<a class="nav-link active" id="pills-periodical-tab" data-toggle="pill" href="#pills-periodical" role="tab" aria-controls="pills-contact" aria-selected="true">Periodical</a>
+						<a class="nav-link" id="pills-periodical-tab" data-toggle="pill" href="#pills-periodical" role="tab" aria-controls="pills-contact" aria-selected="false">Periodical</a>
 					</li>
 				</ul>
 
@@ -47,7 +47,7 @@
 				<div class="tab-content" id="pills-tabContent">
 
 					<!-- book citation -->
-					<div class="tab-pane fade" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
+					<div class="tab-pane fade show active" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
 
 						<h3>Book</h3>
 
@@ -288,7 +288,7 @@
 					</div>
 
 					<!-- Periodical -->
-					<div class="tab-pane fade show active" id="pills-periodical" role="tabpanel" aria-labelledby="pills-periodical-tab">
+					<div class="tab-pane fade" id="pills-periodical" role="tabpanel" aria-labelledby="pills-periodical-tab">
 						<h3>Periodical</h3>
 
 						<!-- periodical form -->
@@ -437,9 +437,7 @@
 
 			<!-- completed citations section -->
 			<div class="col-md-6 col-sm-12">
-
-				<table class="table table-sm" id="myTable">
-
+				<table class="table" id="myTable">
 					<thead>
 						<tr>
 							<th>Citation</th>
@@ -448,13 +446,8 @@
 					</thead>
 					<tbody id="completed-section">
 					</tbody>
-
 				</table>
-
-
-
 			</div>
-
 		</div>
 
 
@@ -514,10 +507,6 @@
 		}
 
 
-		// clear book form input field values
-		function clearBookFields() {
-			$(".form-book-input").val('');
-		}
 
 		// adds a book author input field to the form
 		function addBookAuthorField() {
@@ -550,7 +539,14 @@
 			// $("#completed-section").append(citation);
 
 			addCitationRow(citation);
+			clearBookFields();
 		}
+
+		// clear book form input field values
+		function clearBookFields() {
+			$(".form-book-input").val('');
+		}
+
 
 		//  returns the book authors
 		function getBookAuthors() {
@@ -640,8 +636,6 @@
 			}
 		}
 
-
-
 		// adds a book author input field to the form
 		function addWebsiteAuthorField() {
 			var first = '<div class="form-group col-sm-4"><label for="website-author-first" class="font-weight-bold">Author first:</label><input type="text" class="form-control form-website-input website-author-first"></div>';
@@ -652,10 +646,6 @@
 				'<div class="form-group col-sm-2"><label for="website-add-author" class="font-weight-bold">Add author:</label><button type="button" id="website-add-author" class="btn btn-primary" onclick="addWebsiteAuthorField()">Add author</button></div>';
 
 			$("#website-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
-		}
-
-		function clearWebsiteFields() {
-			$(".form-website-input").val('');
 		}
 
 
@@ -673,7 +663,11 @@
 			// $("#completed-section").append(citation);
 
 			addCitationRow(citation);
+			clearWebsiteFields();
+		}
 
+		function clearWebsiteFields() {
+			$(".form-website-input").val('');
 		}
 
 		//  returns the book authors
@@ -816,13 +810,7 @@
 			$("#periodical-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
 		}
 
-		function clearPeriodicalFields() {
-			$(".form-periodical-input").val('');
-		}
-
-
 		function createPeriodicalCitation() {
-
 			var authors = getPeriodicalAuthors();
 			var title = getPeriodicalTitle();
 			var container = getPeriodicalContainer();
@@ -835,10 +823,15 @@
 			// $("#completed-section").append(citation);
 
 			addCitationRow(citation);
-
+			clearPeriodicalFields();
 		}
 
-		//  returns the book authors
+		function clearPeriodicalFields() {
+			$(".form-periodical-input").val('');
+		}
+
+
+		//  returns the periodical authors
 		function getPeriodicalAuthors() {
 			var lastNames = document.getElementsByClassName("periodical-author-last");
 			var firstNames = document.getElementsByClassName("periodical-author-first");
@@ -881,7 +874,7 @@
 			}
 		}
 
-		// returns the book title
+		// returns the periodical title
 		function getPeriodicalTitle() {
 			var title = $("#periodical-title").val();
 
