@@ -725,6 +725,16 @@
 		}
 
 
+		function addPeriodicalAuthorField() {
+			var first = '<div class="form-group col-sm-4"><label for="periodical-author-first" class="font-weight-bold">Author first:</label><input type="text" class="form-control form-periodical-input periodical-author-first"></div>';
+			var last = '<div class="form-group col-sm-4"><label for="periodical-author-last" class="font-weight-bold">Author last:</label><input type="text" class="form-control form-periodical-input periodical-author-last"></div>';
+			var removeButton =
+				'<div class="form-group col-sm-2"><label for="periodical-remove-author" class="font-weight-bold">Remove author:</label><button type="button" class="btn btn-secondary periodical-remove-author" onclick="removeAuthor(this)">Remove</button></div>';
+			var addButton =
+				'<div class="form-group col-sm-2"><label for="periodical-add-author" class="font-weight-bold">Add author:</label><button type="button" id="periodical-add-author" class="btn btn-primary" onclick="addPeriodicalAuthorField()">Add author</button></div>';
+
+			$("#periodical-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
+		}
 
 
 
