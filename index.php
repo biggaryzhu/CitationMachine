@@ -381,7 +381,7 @@
 
 							<!-- location -->
 							<div class="form-group">
-								<label for="periodical-location" class="font-weight-bold">URL:</label>
+								<label for="periodical-location" class="font-weight-bold">Location (page numbers):</label>
 								<input type="text" class="form-control form-periodical-input" id="periodical-location">
 							</div>
 
@@ -422,10 +422,10 @@
 
 
 							<!-- create periodical citation button -->
-							<button type="button" id="periodical-create-button" class="btn btn-primary" onclick="createperiodicalCitation()">Create</button>
+							<button type="button" id="periodical-create-button" class="btn btn-primary" onclick="createPeriodicalCitation()">Create</button>
 
 							<!-- clear periodical input fields button -->
-							<button type="button" id="periodical-clear-button" class="btn btn-secondary" onclick="clearperiodicalFields()">Clear fields</button>
+							<button type="button" id="periodical-clear-button" class="btn btn-secondary" onclick="clearPeriodicalFields()">Clear fields</button>
 						</form>
 					</div>
 				</div>
@@ -578,6 +578,10 @@
 				'<div class="form-group col-sm-2"><label for="website-add-author" class="font-weight-bold">Add author:</label><button type="button" id="website-add-author" class="btn btn-primary" onclick="addWebsiteAuthorField()">Add author</button></div>';
 
 			$("#website-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
+		}
+
+		function clearWebsiteFields() {
+			$(".form-website-input").val('');
 		}
 
 
@@ -735,6 +739,160 @@
 
 			$("#periodical-authors").append('<div class="form-row">' + first + last + removeButton + addButton + '</div>');
 		}
+
+		function clearPeriodicalFields() {
+			$(".form-periodical-input").val('');
+		}
+
+
+		function createPeriodicalCitation() {
+
+			var authors = getPeriodicalAuthors();
+			var title = getPeriodicalTitle();
+			var container = getPeriodicalContainer();
+			var publisher = getPeriodicalPublisher();
+			var publicationDate = getPeriodicalPublicationDate();
+			var location = getPeriodicalLocation();
+			var accessDate = getPeriodicalAccessDate();
+
+			var citation = '<div>' + authors + title + container + publisher + publicationDate + location + accessDate + '</div>';
+			$("#completed-section").append(citation);
+
+		}
+
+		//  returns the book authors
+		function getPeriodicalAuthors() {
+			var lastNames = document.getElementsByClassName("periodical-author-last");
+			var firstNames = document.getElementsByClassName("periodical-author-first");
+
+			// zero or 1 author
+			if (lastNames.length == 1) {
+				var lastName = lastNames[0].value;
+				var firstName = firstNames[0].value;
+
+				if (lastName.length == 0 && firstName.length == 0) {
+					return '';
+				} else {
+					var result = lastName + ', ' + firstName + '.';
+					return result;
+				}
+			}
+
+			// 2 authors
+			else if (lastNames.length == 2) {
+				// first author
+				var lastName1 = lastNames[0].value;
+				var firstName1 = firstNames[0].value;
+
+				// second author
+				var lastName2 = lastNames[1].value;
+				var firstName2 = firstNames[1].value;
+
+				var result = lastName1 + ', ' + firstName1 + ', and ' + firstName2 + ' ' + lastName2 + '.';
+				return result;
+
+			}
+
+			// three or more authors
+			else {
+				var firstName = firstNames[0].value;
+				var lastName = lastNames[0].value;
+
+				var result = lastName + ', ' + firstName + ', et al.';
+				return result;
+			}
+		}
+
+		// returns the book title
+		function getPeriodicalTitle() {
+			var title = $("#periodical-title").val();
+
+			if (title.length > 0) {
+				return ' "' + title + '."';
+			} else {
+				return '';
+			}
+		}
+
+		function getPeriodicalContainer() {
+
+			var container = $("#periodical-container").val();
+
+			if (container.length > 0) {
+				return ' <i>' + container + '</i>,';
+			} else {
+				return '';
+			}
+		}
+
+		function getPeriodicalPublisher() {
+			var publisher = $("#periodical-publisher").val();
+			if (publisher.length > 0) {
+				return ' ' + publisher + ',';
+			} else {
+				return '';
+			}
+		}
+
+		function getPeriodicalPublicationDate() {
+			var day = $("#periodical-publication-day").val();
+			var month = $("#periodical-publication-month").val();
+			var year = $("#periodical-publication-year").val();
+
+			var result = '';
+
+			if (day.length > 0) {
+				result = ' ' + day;
+			}
+
+			if (month.length > 0) {
+				result = result + ' ' + month + '.';
+			}
+
+			if (year.length > 0) {
+				result = result + ' ' + year + '.';
+			}
+
+			return result;
+		}
+
+		function getPeriodicalAccessDate() {
+			var day = $("#periodical-access-day").val();
+			var month = $("#periodical-access-month").val();
+			var year = $("#periodical-access-year").val();
+
+			var result = ' Accessed';
+
+			if (day.length > 0) {
+				result = result + ' ' + day;
+			}
+
+			if (month.length > 0) {
+				result = result + ' ' + month + '.';
+			}
+
+			if (year.length > 0) {
+				result = result + ' ' + year + '.';
+			}
+
+			return result;
+		}
+
+		function getPeriodicalLocation() {
+			var location = $("#periodical-location").val();
+
+			if (location.length > 0) {
+				return ' ' + location + '.';
+			} else {
+				return '';
+			}
+		}
+
+
+
+
+
+
 
 
 
