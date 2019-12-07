@@ -470,10 +470,15 @@
 
 		function addCitationRow(citation) {
 			var citationCell = '<td>' + citation + '</td>';
-			var trash = '<td><ion-icon name="trash"></ion-icon></td>';
+			var trash = '<td><ion-icon name="trash" class="remove-row-button" onclick="removeCitationRow(this)"></ion-icon></td>';
 			$("#completed-section").append('<tr>' + citationCell + trash + '</tr>');
 		}
 
+		function removeCitationRow(citation) {
+			if (confirm('Delete citation?')) {
+				$(citation).closest("tr").remove();
+			}
+		}
 
 
 		// clear book form input field values
