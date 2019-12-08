@@ -336,7 +336,7 @@
 								<!-- container -->
 								<div class="form-group col-sm-6">
 									<label for="periodical-container" class="font-weight-bold">Container:</label>
-									<input type="text" class="form-control form-periodical-input" id="periodical-container">
+									<input type="text" class="form-control form-periodical-input" id="periodical-container" placeholder="Journal name">
 								</div>
 
 								<!-- publisher -->
@@ -385,7 +385,7 @@
 							<!-- location -->
 							<div class="form-group">
 								<label for="periodical-location" class="font-weight-bold">Location (page numbers):</label>
-								<input type="text" class="form-control form-periodical-input" id="periodical-location">
+								<input type="text" class="form-control form-periodical-input" id="periodical-location" placeholder="pp 10-45">
 							</div>
 
 							<!-- access date -->
